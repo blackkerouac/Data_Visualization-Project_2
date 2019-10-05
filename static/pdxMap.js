@@ -9,7 +9,6 @@ var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/til
 //initializing layers group
 var layers = {
     OMNIVORE: new L.LayerGroup(),
-    PESCETARIAN: new L.LayerGroup(),
     VEGETARIAN: new L.LayerGroup(),
     VEGAN: new L.LayerGroup()
   };
@@ -20,7 +19,6 @@ var map = L.map("map-id", {
     zoom: 12,
     layers: [
       layers.OMNIVORE,
-      layers.PESCETARIAN,
       layers.VEGETARIAN,
       layers.VEGAN
     ]
@@ -32,7 +30,6 @@ var map = L.map("map-id", {
 //overlay object for layer control
   var overlays = {
     "Restaurants for Omnivores": layers.OMNIVORE,
-    "Restaurants for Pescetarians": layers.PESCETARIAN,
     "Restaurants for Ovo-Lacto Vegetarians": layers.VEGETARIAN,
     "Restaurants for Vegans": layers.VEGAN
   };
@@ -57,12 +54,6 @@ var map = L.map("map-id", {
       markerColor: "red",
       shape: "star"
     }),
-    PESCETARIAN: L.ExtraMarkers.icon({
-      icon: "ion-android-bicycle",
-      iconColor: "white",
-      markerColor: "blue",
-      shape: "circle"
-    }),
     VEGETARIAN: L.ExtraMarkers.icon({
       icon: "ion-minus-circled",
       iconColor: "white",
@@ -82,7 +73,6 @@ var restaurantData = d3.json("https://maps.googleapis.com/maps/api/place/nearbys
     //object to keep track of markers
     var restaurants = {
         OMNIVORE: 0,
-        PESCETARIAN: 0, 
         VEGETARIAN: 0,
         VEGAN: 0
     };
@@ -102,9 +92,6 @@ var restaurantData = d3.json("https://maps.googleapis.com/maps/api/place/nearbys
         else if (vegetarian_cuisine.includes(restaurant.cuisines)) {
             restaurantKey = "VEGETARIAN";
         }
-        else if (pescetarian_cuisine.includes(restaurant.cuisines)) {
-            restaurantKey = "PESCETARIAN";
-        }    
         else {
             restaurantKey = "OMNIVORE";
         }
