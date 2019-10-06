@@ -20,7 +20,7 @@ Base = declarative_base()
 Base.prepare(engine, reflect=True)
 
 # Save reference to the table
-Passenger = Base.classes.Eaters
+Eaters = Base.classes.eaters
 
 #################################################
 # Flask Setup
