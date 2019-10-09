@@ -12,15 +12,16 @@ from flask import Flask, jsonify
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///Eaters.sqlite")
+engine = create_engine("sqlite:///resources/Eaters.sqlite")
 
 # reflect an existing database into a new model
-Base = declarative_base()
+Base = automap_base()
+
 # reflect the tables
 Base.prepare(engine, reflect=True)
 
 # Save reference to the table
-Passenger = Base.classes.Eaters
+Eaters = Base.classes.eaters
 
 #################################################
 # Flask Setup
