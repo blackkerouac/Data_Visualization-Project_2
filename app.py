@@ -16,6 +16,10 @@ engine = create_engine("sqlite:///resources/Eaters.sqlite")
 
 # reflect an existing database into a new model
 Base = automap_base()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 67899bc239d0d0f41bcff1f9b3c6dc3214ea4554
 # reflect the tables
 Base.prepare(engine, reflect=True)
 
