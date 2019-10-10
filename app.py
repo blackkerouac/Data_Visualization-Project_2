@@ -5,7 +5,7 @@ from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 
 
@@ -32,13 +32,14 @@ app = Flask(__name__)
 # Flask Routes
 #################################################
 
-@app.route("/")
-def welcome():
-    """List all available api routes."""
-    return (
-        f"Available Routes:<br/>"
-        f"/api/v1.0/Eater_Data"
-    )
+# @app.route("/")
+# def welcome():
+#     """List all available api routes."""
+#     return (
+#         f"Available Routes:<br/>"
+#         f"/api/v1.0/Eater_Data"
+#     )
+
 
 @app.route("/api/v1.0/Eater_Data")
 def data_display():
@@ -77,6 +78,41 @@ def data_display():
 
     return jsonify(all_demographics)
 
+
+
+# List of dictionaries
+
+# create route that renders index.html template
+@app.route("/")
+def index():
+
+    return render_template("1_Introduction_&_Definitions.html")
+
+
+@app.route("/dataset")
+def dataset():
+
+    return render_template("2_Dataset_&_Questions.html")
+
+@app.route("/polar")
+def polar():
+
+    return render_template("3_Polar_Chart_Vegetarian.html")
+
+@app.route("/polarvgn")
+def polarvgn():
+
+    return render_template("4_Polar_Chart_Vegan.html")
+
+@app.route("/cooc")
+def cooc():
+
+    return render_template("5_Cooccurance_Chart.html")
+
+@app.route("/bubble")
+def bubb():
+
+    return render_template("6_Bubble_Chart.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

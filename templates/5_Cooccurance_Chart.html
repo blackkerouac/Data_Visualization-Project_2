@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>THIS WILL BE THE BUBBLE CHART</title>
+    <script src="Chart.js"></script>
+    <script src="Chart.min.js"></script>
+	<script src="polar_chart.js"></script>
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+	</style>
+	<form>
+			<select name="list" id="list" accesskey="target">
+				<option value='none' selected>Select a Page</option>
+				<option value="intro">Introduction & Definitions</option>
+				<option value="dataset">Dataset & Questions</option>
+				<option value="polar">Vegetarian Polar Area Chart</option>
+				<option value="polarvgn">Vegan Polar Area Chart</option>
+				<option value="cooc">Cooccurance Chart</option>
+				<option value="bubble">Bubble Chart</option>
+				<option value="http://www.google.com">Portland Restaurants</option>
+			</select>
+			<input type=button value="Go" onclick="goToNewPage()" />
+			</form>
+<script type="text/javascript">
+	function goToNewPage()
+	{
+		var url = document.getElementById('list').value;
+		if(url != 'none') {
+			window.location = url;
+		}
+	}
+</script>
+</head>
+
+
+<body>
+<p>
+
+
+</p>
+<p> THIS WILL BE THE COOCURRANCE CHART </p>
+<p>
+
+	
+</p>
+<p>Would you like to know where the survey participants are from?</p>
+<p>
+		<ul>
+			<li>The <a href="6_Bubble_Chart.html">Bubble Chart</a> will show where these Vegists live!</li>
+		</ul>
+		</p>
+
+<p>
+</p>
+  
+</body>
+
+</html>
+

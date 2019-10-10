@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dataset & Questions to Answer</title>
+
+  <form>
+    <select name="list" id="list" accesskey="target">
+      <option value='none' selected>Select a Page</option>
+      <option value="intro">Introduction & Definitions</option>
+      <option value="dataset">Dataset & Questions</option>
+      <option value="polar">Vegetarian Polar Area Chart</option>
+      <option value="polarvgn">Vegan Polar Area Chart</option>
+      <option value="cooc">Cooccurance Chart</option>
+      <option value="bubble">Bubble Chart</option>
+      <option value="http://www.google.com">Portland Restaurants</option>
+    </select>
+    <input type=button value="Go" onclick="goToNewPage()" />
+    </form>
+<script type="text/javascript">
+  function goToNewPage()
+  {
+      var url = document.getElementById('list').value;
+      if(url != 'none') {
+          window.location = url;
+      }
+  }
+</script>
+</head>
+
+<body>
+  <!-- Headline -->
+  <h1>The Data</h1>
+  <p>Our dataset contains survey responses from 1,313 participants categorized as omnivores, vegetarians, and vegans.  </p>
+  
+  <h1>Questions to Answer</h1>
+  <!-- Image -->
+    <img src="Who.jpg" alt="Who transitions to Veg'nism?">
+
+  <!-- Ordered List (numbered 1 to 4) -->
+
+  <ol>
+    <li>Why would someone transition to Veg'nism?</li>  
+    <ul>
+        <li>For ethical, cultrual, health or economic reasons?</li>
+    </ul>
+    <p></p>
+    <li>Who is the type of person who would make the decision to transition to Veg'nism? 
+    <ul>
+        <li>What is their education level?</li>
+        <li>Where do they live?</li>
+        <li>What is their gender?</li>
+        <li>What is their ethnicity?</li>
+    </ul>
+    <p></p>
+    <li>What age do people typically make the transition to Veg'nism?</li>
+  </ol>
+  <p></p>
+  <p>
+  
+  </p>
+  <p>Moving on to visualizations! </p>
+  <p></p>
+  <p>
+  <ul>
+    <li>The <a href="3_Polar_Chart_Vegetarian.html">Vegetarian Polar Area Chart</a> shows what motivated the survey participants to become Vegetarian.</li>
+    <li>The <a href="4_Polar_Chart_Vegan.html">Vegan Polar Area Chart</a> shows what motivated the survey participants to become Vegans.</li>
+  </ul>
+  </p>
+  
+</body>
+
+</html>
