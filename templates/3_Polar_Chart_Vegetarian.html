@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Vegetarian Polar Area Chart</title>
+    <script src="static/Chart.js"></script>
+    <script src="static/Chart.min.js"></script>
+	<script src="static/polar_chart.js"></script>
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+	</style>
+
+	<form>
+		<select name="list" id="list" accesskey="target">
+			<option value='none' selected>Select a Page</option>
+
+			<option value="/">Introduction & Definitions</option>
+
+			<option value="dataset">Dataset & Questions</option>
+			<option value="polar">Vegetarian Polar Area Chart</option>
+			<option value="polarvgn">Vegan Polar Area Chart</option>
+			<option value="cooc">Cooccurance Chart</option>
+			<option value="bubble">Bubble Chart</option>
+			<option value="http://www.google.com">Portland Restaurants</option>
+		</select>
+		<input type=button value="Go" onclick="goToNewPage()" />
+		</form>
+<script type="text/javascript">
+	function goToNewPage()
+	{
+		var url = document.getElementById('list').value;
+		if(url != 'none') {
+			window.location = url;
+		}
+	}
+</script>
+</head>
+
+<body>
+	<div id="canvas-holder" style="width:50%">
+		<canvas id="chart-area"></canvas>
+	</div>
+	<script>
+		var randomScalingFactor = function() {
+			return Math.round(Math.random() * 100);
+		};
+
+		var chartColors = window.chartColors;
+		var color = Chart.helpers.color;
+		var config = {
+			data: {
+				datasets: [{
+					data: [10, 10, 10, 21, 4, 11, 7, 12, 5, 10],
+					backgroundColor: [
+						color(chartColors.red).alpha(0.5).rgbString(),
+						color(chartColors.orange).alpha(0.5).rgbString(),
+						color(chartColors.yellow).alpha(0.5).rgbString(),
+						color(chartColors.green).alpha(0.5).rgbString(),
+                        color(chartColors.blue).alpha(0.5).rgbString(),
+                        color(chartColors.purple).alpha(0.5).rgbString(),
+                        color(chartColors.grey).alpha(0.5).rgbString(),
+                        color(chartColors.lime).alpha(0.5).rgbString(),
+                        color(chartColors.pink).alpha(0.5).rgbString(),
+                        color(chartColors.teal).alpha(0.5).rgbString(),
+					],
+					label: 'My dataset' // for legend
+				}],
+				labels: [
+					'Animal Protection',
+					'Concern for Environment',
+                    'Cost',
+                    'Health',
+					'Religious or Spiritual Beliefs',
+                    'Social Influence',
+                    'Social Justice or World Hunger',
+                    'Taste Preferences',
+                    'Following a Food Trend',
+                    'Feelings of Disgust about Meat'
+				]
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: 'right',
+				},
+				title: {
+					display: true,
+					text: 'Vegetarian Motivation Chart'
+				},
+				scale: {
+					ticks: {
+						beginAtZero: true
+					},
+					reverse: false
+				},
+				animation: {
+					animateRotate: false,
+					animateScale: true
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area');
+			window.myPolarArea = Chart.PolarArea(ctx, config);
+		};
+
+		document.getElementById('randomizeData').addEventListener('click', function() {
+			config.data.datasets.forEach(function(piece, i) {
+				piece.data.forEach(function(value, j) {
+					config.data.datasets[i].data[j] = randomScalingFactor();
+				});
+			});
+			window.myPolarArea.update();
+		});
+
+		var colorNames = Object.keys(window.chartColors);
+		document.getElementById('addData').addEventListener('click', function() {
+			if (config.data.datasets.length > 0) {
+				config.data.labels.push('data #' + config.data.labels.length);
+				config.data.datasets.forEach(function(dataset) {
+					var colorName = colorNames[config.data.labels.length % colorNames.length];
+					dataset.backgroundColor.push(window.chartColors[colorName]);
+					dataset.data.push(randomScalingFactor());
+				});
+				window.myPolarArea.update();
+			}
+		});
+		document.getElementById('removeData').addEventListener('click', function() {
+			config.data.labels.pop(); // remove the label first
+			config.data.datasets.forEach(function(dataset) {
+				dataset.backgroundColor.pop();
+				dataset.data.pop();
+			});
+			window.myPolarArea.update();
+		});
+	</script>
+
+<p>
+</p>
+<p>Moving on to more visualizations! </p>
+<p></p>
+<p>
+<ul>
+	<li>The <a href="polarvgn">Vegan Polar Area Chart</a> shows what motivated the survey participants to become Vegans.</li>
+</ul>
+</p>
+  
+</body>
+
+</html>
