@@ -3,9 +3,9 @@
 
 <head>
 	<title>Vegan Polar Area Chart</title>
-    <script src="Chart.js"></script>
-    <script src="Chart.min.js"></script>
-	<script src="polar_chart.js"></script>
+    <script src="static/Chart.js"></script>
+    <script src="static/Chart.min.js"></script>
+	<script src="static/polar_chart.js"></script>
 	<style>
 		canvas {
 			-moz-user-select: none;
@@ -16,12 +16,12 @@
 	<form>
 			<select name="list" id="list" accesskey="target">
 				<option value='none' selected>Select a Page</option>
-				<option value="1_Introduction_&_Definitions.html">Introduction & Definitions</option>
-				<option value="2_Dataset_&_Questions.html">Dataset & Questions</option>
-				<option value="3_Polar_Chart_Vegetarian.html">Vegetarian Polar Area Chart</option>
-				<option value="4_Polar_Chart_Vegan.html">Vegan Polar Area Chart</option>
-				<option value="5_Cooccurance_Chart.html">Cooccurance Chart</option>
-				<option value="6_Bubble_Chart.html">Bubble Chart</option>
+				<option value="intro">Introduction & Definitions</option>
+				<option value="dataset">Dataset & Questions</option>
+				<option value="polar">Vegetarian Polar Area Chart</option>
+				<option value="polarvgn">Vegan Polar Area Chart</option>
+				<option value="cooc">Cooccurance Chart</option>
+				<option value="bubble">Bubble Chart</option>
 				<option value="http://www.google.com">Portland Restaurants</option>
 			</select>
 			<input type=button value="Go" onclick="goToNewPage()" />
