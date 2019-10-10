@@ -41,8 +41,31 @@ app = Flask(__name__)
 #     )
 
 
+# @app.route("/")
+# def welcome():
+#     """List all available api routes."""
+#     return (
+#         f"Available Routes:<br/>"
+#         f"/api/v1.0/Eater_Type<br/>"
+#         f"/api/v1.0/Gender"
+#     )
+
+@app.route("/dietdata.html")
+def dietdata():
+   return (render_template("dietdata.html"))
+
+@app.route(“/bubble”)
+def welcome():
+   return (render_template(“bubble.html”))
+
+@app.route("/api/v1.0/names")
+def names():
+    # Create our session (link) from Python to the DB
+=======
+
 @app.route("/api/v1.0/Eater_Data")
 def data_display():
+
     session = Session(engine)
 
     """Return a list of eater data including the age, gender, state, education, political party, race, and religion of each eater"""
