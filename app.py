@@ -50,18 +50,18 @@ app = Flask(__name__)
 #         f"/api/v1.0/Gender"
 #     )
 
-@app.route("/dietdata.html")
-def dietdata():
-   return (render_template("dietdata.html"))
+# @app.route("/dietdata.html")
+# def dietdata():
+#    return (render_template("dietdata.html"))
 
-@app.route(“/bubble”)
-def welcome():
-   return (render_template(“bubble.html”))
+# @app.route("/bubble.html")
+# def welcome():
+#    return (render_template("bubble.html"))
 
-@app.route("/api/v1.0/names")
-def names():
+# @app.route("/api/v1.0/names")
+# def names():
     # Create our session (link) from Python to the DB
-=======
+
 
 @app.route("/api/v1.0/Eater_Data")
 def data_display():
