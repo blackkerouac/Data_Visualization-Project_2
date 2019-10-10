@@ -47,6 +47,13 @@ def welcome():
         f"/api/v1.0/Gender"
     )
 
+@app.route("/dietdata.html")
+def dietdata():
+   return (render_template("dietdata.html"))
+
+@app.route(“/bubble”)
+def welcome():
+   return (render_template(“bubble.html”))
 
 @app.route("/api/v1.0/names")
 def names():
