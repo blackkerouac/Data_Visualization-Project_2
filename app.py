@@ -133,17 +133,17 @@ def cooc():
     return render_template("5_Cooccurance_Chart.html")
 
 @app.route("/bubbleomn")
-def bubb():
+def bubbo():
 
     return render_template("6_Bubble_Chart_Omn.html")
 
 @app.route("/bubblevega")
-def bubb():
+def bubbve():
 
     return render_template("7_Bubble_Chart_Vega.html")
 
 @app.route("/bubblevege")
-def bubb():
+def bubbveg():
 
     return render_template("8_Bubble_Chart_Vege.html")
 
