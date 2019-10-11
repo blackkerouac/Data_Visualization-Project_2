@@ -1,5 +1,6 @@
 # import necessary libraries
 import numpy as np 
+import pandas as pd
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -74,6 +75,11 @@ def data_display():
     results = session.query(Eaters.Motivation_Animal_Protection, Eaters.Motivation_Concern_for_Environment, Eaters.Motivation_Cost, Eaters.Motivation_Health, Eaters.Motivation_Religious_Spiritual_Beliefs, Eaters.Motivation_Social_Influence, Eaters.Motivation_Social_Justice_or_World_Hunger, Eaters.Motivation_Taste_Preferences, Eaters.Motivation_Following_Food_Trend, Eaters.Motivation_Feelings_of_Disgust_about_Meat, Eaters.Eater_Type, Eaters.Age_Transitioned_to_Vegnism, Eaters.Gender, Eaters.State, Eaters.Education, Eaters.Political, Eaters.Race_Ethnicity, Eaters.Religion).all()
 
     session.close()
+
+    #create pandas dataframe from database
+    query =query = "select * from Eaters"
+    eaters_df = pd.read_sql_query(query, session)   
+    eaters_df.head()
 
     # Create a dictionary from the row data and append to a list of all_demographics and other stuff
     all_demographics = []

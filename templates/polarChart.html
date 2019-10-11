@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Veg'nism Polar Area Chart</title>
+	<script src="Chart.min.js"></script>
+	<script src="utils.js"></script>
+	<script src="polar_chart.js"></script>
+	<script scr="Chart.js"></script>
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="canvas-holder" style="width:50%">
+		<canvas id="chart-area"></canvas>
+	</div>
+	<button id="VeganData">Vegan Data</button>
+	<button id="VegetarianData">Vegetarian Data</button>
+	<script>
+		var chartColors = window.chartColors;
+		var color = Chart.helpers.color;
+		var config1 = {
+			data: {
+				datasets: [{
+					data: [20, 13, 5, 11, 6, 9, 6, 10, 6, 14],
+					backgroundColor: [
+                    	color(chartColors.red).alpha(0.5).rgbString(),
+                        color(chartColors.orange).alpha(0.5).rgbString(),
+                        color(chartColors.yellow).alpha(0.5).rgbString(),
+                        color(chartColors.green).alpha(0.5).rgbString(),
+                        color(chartColors.blue).alpha(0.5).rgbString(),
+                        color(chartColors.purple).alpha(0.5).rgbString(),
+                        color(chartColors.grey).alpha(0.5).rgbString(),
+                        color(chartColors.lime).alpha(0.5).rgbString(),
+                        color(chartColors.pink).alpha(0.5).rgbString(),
+                        color(chartColors.teal).alpha(0.5).rgbString()
+				]}],
+				labels: [
+					'Animal Protection',
+                    'Concern for Environment',
+                    'Cost',
+                    'Health',
+                    'Religious or Spiritual Beliefs',
+                    'Social Influence',
+                    'Social Justice or World Hunger',
+                    'Taste Preferences',
+                    'Following a Food Trend',
+                    'Feelings of Disgust about Meat'
+				],
+
+			options: {
+				responsive: true,
+				legend: {
+					position: 'right',
+				},
+				title: {
+					display: true,
+					text: 'Chart.js Polar Area Chart'
+				},
+				scale: {
+					ticks: {
+						beginAtZero: true
+					},
+					reverse: false
+				},
+				animation: {
+					animateRotate: false,
+					animateScale: true
+				}
+			}
+        };
+        var config2 = {
+			data: {
+				datasets: [{
+					data: [10, 10, 10, 21, 4, 11, 7, 12, 5, 10],
+					backgroundColor: [
+                    	color(chartColors.red).alpha(0.5).rgbString(),
+                        color(chartColors.orange).alpha(0.5).rgbString(),
+                        color(chartColors.yellow).alpha(0.5).rgbString(),
+                        color(chartColors.green).alpha(0.5).rgbString(),
+                        color(chartColors.blue).alpha(0.5).rgbString(),
+                        color(chartColors.purple).alpha(0.5).rgbString(),
+                        color(chartColors.grey).alpha(0.5).rgbString(),
+                        color(chartColors.lime).alpha(0.5).rgbString(),
+                        color(chartColors.pink).alpha(0.5).rgbString(),
+                        color(chartColors.teal).alpha(0.5).rgbString(),
+					],
+				}],
+				labels: [
+					'Animal Protection',
+                    'Concern for Environment',
+                    'Cost',
+                    'Health',
+                    'Religious or Spiritual Beliefs',
+                    'Social Influence',
+                    'Social Justice or World Hunger',
+                    'Taste Preferences',
+                    'Following a Food Trend',
+                    'Feelings of Disgust about Meat'
+				]
+				
+			},
+			options: {
+				responsive: true,
+				legend: {
+					position: 'right',
+				},
+				title: {
+					display: true,
+					text: 'Polar Area Chart'
+				},
+				scale: {
+					ticks: {
+						beginAtZero: true
+					},
+					reverse: false
+				},
+				animation: {
+					animateRotate: false,
+					animateScale: true
+				}
+			}
+		};
+
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area');
+			window.myPolarArea = Chart.PolarArea(ctx, config1);
+		};
+
+		document.getElementById('VeganData').addEventListener('click', function() {
+			config1.data.datasets.forEach(function(piece, i) {
+				piece.data.forEach(function(value, j) {
+					config1.data.datasets[i].data[j] = 1;
+				});
+			});
+			window.myPolarArea.update();
+		});
+		window.onload = function() {
+			var ctx = document.getElementById('chart-area');
+			window.myPolarArea = Chart.PolarArea(ctx, config2);
+		
+        
+		document.getElementById('VegetarianData').addEventListener('click', function() {
+			config2.data.datasets.forEach(function(piece, i) {
+				piece.data.forEach(function(value, j) {
+					config2.data.datasets[i].data[j] = 1;
+				});
+			});
+			window.myPolarArea.update();
+		});
+		
+	</script>
+</body>
+
+</html>
