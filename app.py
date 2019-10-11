@@ -132,10 +132,20 @@ def cooc():
 
     return render_template("5_Cooccurance_Chart.html")
 
-@app.route("/bubble")
+@app.route("/bubbleomn")
 def bubb():
 
-    return render_template("6_Bubble_Chart.html")
+    return render_template("6_Bubble_Chart_Omn.html")
+
+@app.route("/bubblevega")
+def bubb():
+
+    return render_template("7_Bubble_Chart_Vega.html")
+
+@app.route("/bubblevege")
+def bubb():
+
+    return render_template("8_Bubble_Chart_Vege.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
