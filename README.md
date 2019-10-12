@@ -15,3 +15,11 @@
 5. Your project must include some level of user-driven interaction (e.g., menus, dropdowns, textboxes).
 
 6. Your final visualization should ideally include at least three views.
+
+
+Directions:
+1. Clone repository.
+2. Set up virtual environment and install libraries per requirements.txt file.
+3. In terminal or git bash, type py app.py.
+4. Open Chrome browser and navigate to localhost:5000 and the file you would like to examine.
+*** You will not need to do anything to install the database since it is a SQLlite file.
